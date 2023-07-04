@@ -145,7 +145,7 @@ class FrameAnalyzer(private val outputFile: File, private val mycontext: Context
             z++;
             if (z == 600) {
                 Log.d("anatime", "muxer")
-                videoStates[currentarray] = 2;
+              //  videoStates[currentarray] = 2;
                 val priv = currentarray
                                      executor.execute(Runnable {
 
