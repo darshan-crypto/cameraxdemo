@@ -46,6 +46,7 @@ class FrameBuilder(
         format
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     private val mediaCodec: MediaCodec = run {
         val codecs = MediaCodecList(ALL_CODECS)
         var codecname : String = ""
@@ -53,11 +54,17 @@ class FrameBuilder(
             Log.d("errorx","media format is null")
 
         }
+        for (codec in codecs.codecInfos){
+            Log.d("errorx","andpx ${codec.name} ${codec.isVendor}")
+
+        }
         try{
             codecname =codecs.findEncoderForFormat(mediaFormat)
         }
         catch (exc: Exception){
            Log.d("errorx","codec name not found ${exc.message}")
+           codecname = "c2.android.avc.encoder"
+
         }
         Log.d("errorx","codec name is ${codecname}")
 
