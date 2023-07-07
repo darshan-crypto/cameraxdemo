@@ -322,7 +322,10 @@ class VideoFragment : Fragment() {
 
 
             // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            val cameraSelector = CameraSelector.Builder()
+
+                .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+                .build()
 
 
             try {
